@@ -84,7 +84,7 @@ const PromptBox = () => {
       setIsLoading(false);
     }
   };
-  
+
 
   return (
     <div className="relative">
