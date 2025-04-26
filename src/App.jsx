@@ -61,7 +61,7 @@ const handleCardClick = (websiteName) => {
       <div className="min-h-screen bg-gradient-to-br from-brown-900 to-brown-800 bg-opacity-90 relative">
         {/* Background Pattern */}
         <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
-          <div className="w-full h-full bg-[url('./src/Img/herobg.png')] bg-repeat"></div>
+          <div className="w-full h-full bg-[url('public/herobg.png')] bg-repeat"></div>
         </div>
 
         {/* Content Container */}
