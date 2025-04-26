@@ -30,7 +30,6 @@ const PromptBox = ({ selectedWebsite, closePromptBox }) => {
       console.log("Code reaches line number 29.")
       const response = await axios.post(
         "https://navify-backend.onrender.com/api/v1/navify",
-        // "http://localhost:8000/api/v1/navify",
         {
           prompt: currentInput,
           websiteName: selectedWebsite,
