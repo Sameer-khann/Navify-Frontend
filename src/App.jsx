@@ -1,11 +1,15 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import DJB from "./Img/DJB.png";
 import EPFO from "./Img/EPFO.png";
 import PaviwahanSewa from "./Img/ParivahanSewa.png";
+import SancharSaathi from "./Img/sancharsaathi.png";
+
+import maze from "./Img/maze.png";
+import search from "./Img/search.png";
+import clickhere from "./Img/clickhere.png";
+
 import PromptBox from "./navify/PromptBox";
-
-
 
 const services = [
   {
@@ -36,25 +40,24 @@ const services = [
     websiteKey: "ParivahanSewa",
   },
   {
-    title: "Add yourself",
-    description: "Add yourself",
-    isSvg: true,
-    alt: "Add icon",
-    websiteKey: "custom",
+    title: "Sanchar Saathi",
+    description:
+      "Sanchar Saathi is a government portal that helps users manage mobile connections, block lost/stolen phones, and verify mobile numbers linked to their identity in India.",
+    logo: SancharSaathi,
+    isSvg: false,
+    alt: "Sanchar Saathi",
+    websiteKey: "SancharSaathi",
   },
 ];
 
-
 function app() {
-
   const [selectedWebsite, setSelectedWebsite] = useState(null);
-const [isPromptBoxOpen, setIsPromptBoxOpen] = useState(false);
+  const [isPromptBoxOpen, setIsPromptBoxOpen] = useState(false);
 
-const handleCardClick = (websiteName) => {
-  setSelectedWebsite(websiteName);
-  setIsPromptBoxOpen(true);
-};
-
+  const handleCardClick = (websiteName) => {
+    setSelectedWebsite(websiteName);
+    setIsPromptBoxOpen(true);
+  };
 
   return (
     <>
@@ -67,7 +70,7 @@ const handleCardClick = (websiteName) => {
         {/* Content Container */}
         <div className="relative z-10 flex flex-col min-h-screen">
           {/* Navigation */}
-          <nav className="py-4 px-6 md:px-12 lg:px-16">
+          <nav className="m-10 py-4 px- border-2 rounded-full backdrop-blur-sm bg-white/10  md:px-12 lg:px-16">
             <div className="max-w-6xl mx-auto">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
@@ -102,10 +105,10 @@ const handleCardClick = (websiteName) => {
           {/* Main Content */}
           <main className="flex-grow flex items-center justify-center px-6 md:px-12 lg:px-16 pb-12">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-white text-3xl  md:text-4xl lg:text-5xl font-bold mb-6">
                 Making Government Websites
                 <br />
-                Effortless to Use.
+                <div className="p-4">Effortless to Use.</div>
               </h2>
               <p className="text-white text-md md:text-lg opacity-80 max-w-3xl mx-auto">
                 A unified platform that simplifies access to government services
@@ -276,43 +279,7 @@ const handleCardClick = (websiteName) => {
               {/* Card 1 - Confusing layouts */}
               <div className="bg-gray-800 rounded-lg p-8 border border-gray-700 flex flex-col items-center text-center">
                 <div className="mb-6 text-blue-400">
-                  <svg
-                    className="w-16 h-16"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect
-                      x="12"
-                      y="12"
-                      width="40"
-                      height="40"
-                      rx="2"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                    />
-                    <rect
-                      x="20"
-                      y="20"
-                      width="24"
-                      height="24"
-                      rx="2"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                    />
-                    <rect
-                      x="28"
-                      y="28"
-                      width="8"
-                      height="8"
-                      rx="1"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                    />
-                  </svg>
+                  <img src={maze} alt="Maze" />
                 </div>
                 <p className="text-white text-lg">
                   Confusing layouts with inconsistent navigation.
@@ -322,67 +289,7 @@ const handleCardClick = (websiteName) => {
               {/* Card 2 - Long menus */}
               <div className="bg-gray-800 rounded-lg p-8 border border-gray-700 flex flex-col items-center text-center">
                 <div className="mb-6 text-blue-400">
-                  <svg
-                    className="w-16 h-16"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect
-                      x="14"
-                      y="14"
-                      width="36"
-                      height="36"
-                      rx="2"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                    />
-                    <rect
-                      x="20"
-                      y="22"
-                      width="24"
-                      height="6"
-                      rx="1"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                    />
-                    <rect
-                      x="20"
-                      y="32"
-                      width="24"
-                      height="6"
-                      rx="1"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                    />
-                    <rect
-                      x="20"
-                      y="42"
-                      width="24"
-                      height="6"
-                      rx="1"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                    />
-                    <circle
-                      cx="32"
-                      cy="25"
-                      r="8"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                    />
-                    <path
-                      d="M36 29L40 33"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
+                  <img src={search} alt="search" />
                 </div>
                 <p className="text-white text-lg">
                   Long, buried menus that hide essential services.
@@ -392,80 +299,7 @@ const handleCardClick = (websiteName) => {
               {/* Card 3 - Users don't know where to click */}
               <div className="bg-gray-800 rounded-lg p-8 border border-gray-700 flex flex-col items-center text-center">
                 <div className="mb-6 text-gray-300">
-                  <svg
-                    className="w-16 h-16"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M24 32C24 29.7909 25.7909 28 28 28H36C38.2091 28 40 29.7909 40 32V40C40 42.2091 38.2091 44 36 44H28C25.7909 44 24 42.2091 24 40V32Z"
-                      fill="none"
-                    />
-                    <path
-                      d="M12 20H18"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M22 20H28"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M32 20H38"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M42 20H48"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <text x="48" y="24" fontSize="14" fill="currentColor">
-                      ?
-                    </text>
-                    <path
-                      d="M28 28L22 22"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M36 36L42 30"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M30 40L24 46"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M32 32L38 26"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M44 22L50 16"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M34 34L40 40"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
+                  <img src={clickhere} alt="Click here" />
                 </div>
                 <p className="text-white text-lg">
                   Users don't know where to click — so they leave.
@@ -521,22 +355,88 @@ const handleCardClick = (websiteName) => {
               </p>
             </div>
 
+            <div className="bg-[rgba(27,27,27,1)] text-white py-10 px-4">
+              <div className="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center relative">
+                {/* <!-- Step 1 --> */}
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-14 h-14 rounded-full bg-white border-4 border-orange-500 flex items-center justify-center text-black font-bold text-xl">
+                    1
+                  </div>
+                  <p className="mt-2 w-32 sm:w-40 text-sm">
+                    Select a government website from the Repository.
+                  </p>
+                </div>
+
+                {/* <!-- Curve 1 --> */}
+                {/* <div className="hidden sm:block absolute top-7 left-[90px] w-[22%] h-20">
+      <svg viewBox="0 0 100 50" className="w-full h-full">
+        <path d="M0,50 C25,0 75,0 100,50" fill="none" stroke="#888" stroke-dasharray="4" stroke-width="2"/>
+      </svg>
+    </div> */}
+
+                {/* <!-- Step 2 --> */}
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-14 h-14 rounded-full bg-white border-4 border-cyan-500 flex items-center justify-center text-black font-bold text-xl">
+                    2
+                  </div>
+                  <p className="mt-2 w-32 sm:w-40 text-sm">
+                    Enter your prompt in Navify and hit enter.
+                  </p>
+                </div>
+
+                {/* <!-- Curve 2 --> */}
+                {/* <div className="hidden sm:block absolute top-7 left-[300px] w-[22%] h-20">
+      <svg viewBox="0 0 100 50" className="w-full h-full">
+        <path d="M0,50 C25,0 75,0 100,50" fill="none" stroke="#888" stroke-dasharray="4" stroke-width="2"/>
+      </svg>
+    </div> */}
+
+                {/* <!-- Step 3 --> */}
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-14 h-14 rounded-full bg-white border-4 border-orange-500 flex items-center justify-center text-black font-bold text-xl">
+                    3
+                  </div>
+                  <p className="mt-2 w-32 sm:w-40 text-sm">
+                    View the top 3 most relevant pages with a summary.
+                  </p>
+                </div>
+
+                {/* <!-- Curve 3 --> */}
+                {/* <div className="hidden sm:block absolute top-7 left-[510px] w-[22%] h-20">
+      <svg viewBox="0 0 100 50" className="w-full h-full">
+        <path d="M0,50 C25,0 75,0 100,50" fill="none" stroke="#888" stroke-dasharray="4" stroke-width="2"/>
+      </svg>
+    </div> */}
+
+                {/* <!-- Step 4 --> */}
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-14 h-14 rounded-full bg-white border-4 border-cyan-500 flex items-center justify-center text-black font-bold text-xl">
+                    4
+                  </div>
+                  <p className="mt-2 w-32 sm:w-40 text-sm">
+                    Click on the relevant link and get redirected to the
+                    required page.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Steps section */}
-            <div className="flex flex-col md:flex-row items-center justify-center mt-20 max-w-5xl mx-auto">
-              {/* Left side - Steps 1 & 2 */}
-              <div className="flex flex-col items-center mb-12 md:mb-0 md:mr-8 lg:mr-16">
-                {/* Step 1 */}
-                <div className="text-center mb-12">
+            {/* <div className="flex flex-col md:flex-row items-center justify-center mt-20 max-w-5xl mx-auto"> */}
+            {/* Left side - Steps 1 & 2 */}
+            {/* <div className="flex flex-col items-center mb-12 md:mb-0 md:mr-8 lg:mr-16"> */}
+            {/* Step 1 */}
+            {/* <div className="text-center mb-12">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 text-white text-2xl font-bold mb-4">
                     1
                   </div>
                   <p className="text-white text-lg max-w-xs">
                     Select a government website from the Repository.
                   </p>
-                </div>
+                </div> */}
 
-                {/* Step 2 */}
-                <div className="relative" style={{ marginLeft: "80px" }}>
+            {/* Step 2 */}
+            {/* <div className="relative" style={{ marginLeft: "80px" }}>
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-teal-400 to-cyan-600 text-white text-2xl font-bold mb-4">
                     2
                   </div>
@@ -544,22 +444,22 @@ const handleCardClick = (websiteName) => {
                     Enter your prompt in Navify and hit enter.
                   </p>
                 </div>
-              </div>
+              </div> */}
 
-              {/* Right side - Steps 3 & 4 */}
-              <div className="flex flex-col items-center md:ml-8 lg:ml-16">
-                {/* Step 3 */}
-                <div className="text-center mb-12">
+            {/* Right side - Steps 3 & 4 */}
+            {/* <div className="flex flex-col items-center md:ml-8 lg:ml-16"> */}
+            {/* Step 3 */}
+            {/* <div className="text-center mb-12">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 text-white text-2xl font-bold mb-4">
                     3
                   </div>
                   <p className="text-white text-lg max-w-xs">
                     View the top 3 most relevant pages with a summary.
                   </p>
-                </div>
+                </div> */}
 
-                {/* Step 4 */}
-                <div className="relative" style={{ marginLeft: "80px" }}>
+            {/* Step 4 */}
+            {/* <div className="relative" style={{ marginLeft: "80px" }}>
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-teal-400 to-cyan-600 text-white text-2xl font-bold mb-4">
                     4
                   </div>
@@ -569,10 +469,10 @@ const handleCardClick = (websiteName) => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Dashed connecting lines */}
-            <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl">
+            {/* <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl">
               <svg
                 className="w-full h-24 opacity-30"
                 viewBox="0 0 800 100"
@@ -586,7 +486,7 @@ const handleCardClick = (websiteName) => {
                   strokeDasharray="5,5"
                 />
               </svg>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
