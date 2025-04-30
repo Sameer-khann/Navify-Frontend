@@ -103,20 +103,20 @@ const PromptBox = ({ selectedWebsite, closePromptBox }) => {
                   <p className="text-sm">{msg.text}</p>
                 </div>
                 {msg.links && (
-                  <div className="mt-3 space-y-2 bg-white/80 p-3 rounded-lg shadow-sm">
+                  <div className="mt-3 space-y-2 bg-white/80 p-3 rounded-lg shadow-sm overflow-x-hidden text-wrap">
                     <p className="text-xs font-medium text-gray-500 mb-2">
                       Related Links:
                     </p>
                     {msg.links.map((link, i) => (
                       <a
-                        key={i}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block text-blue-600 hover:text-blue-800 text-sm py-1 px-2 rounded-md hover:bg-blue-50 transition"
-                      >
-                        {link.label}
-                      </a>
+                      key={i}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-blue-600 hover:text-blue-800 text-sm py-1 px-2 rounded-md hover:bg-blue-50 transition break-all"
+                    >
+                      {link.label}
+                    </a>
                     ))}
                   </div>
                 )}

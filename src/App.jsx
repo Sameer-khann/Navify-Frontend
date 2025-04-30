@@ -180,7 +180,7 @@ function app() {
           </header>
 
           {/* Repository Grid */}
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 cursor-pointer md:grid-cols-2 gap-6">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -313,7 +313,7 @@ function app() {
       <section>
         <div className="min-h-screen bg-[rgba(27,27,27,1)] p-6 md:p-12 lg:p-16 relative">
           {/* Orange sun/burst icon in top left */}
-          <div className="absolute top-0 left-0 text-orange-500 mt-6 ml-6 md:mt-12 md:ml-12">
+          {/* <div className="absolute top-0 left-0 text-orange-500 mt-6 ml-6 md:mt-12 md:ml-12">
             <svg viewBox="0 0 50 50" className="w-16 h-16 md:w-24 md:h-24">
               <circle
                 cx="25"
@@ -337,7 +337,7 @@ function app() {
                 ))}
               </g>
             </svg>
-          </div>
+          </div> */}
 
           {/* Main content */}
           <div className="max-w-6xl mx-auto pt-20 md:pt-16">
