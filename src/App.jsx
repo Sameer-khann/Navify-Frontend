@@ -38,7 +38,7 @@ const services = [
     logo: PaviwahanSewa,
     alt: "Parivahan Sewa logo",
     isSvg: false,
-    websiteKey: "ParivahanSewa",
+    websiteKey: "Parivahan",
   },
   {
     title: "Sanchar Saathi",
@@ -47,7 +47,7 @@ const services = [
     logo: SancharSaathi,
     isSvg: false,
     alt: "Sanchar Saathi",
-    websiteKey: "SancharSaathi",
+    websiteKey: "Sancharsaathi",
   },
 ];
 
