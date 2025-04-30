@@ -2,11 +2,20 @@ import React, { useState } from "react";
 import { Send } from "lucide-react";
 import axios from "axios";
 
+import Navify from "../Img/Navify.svg"
+
 const PromptBox = ({ selectedWebsite, closePromptBox }) => {
   const [isOpen, setIsOpen] = useState(true); // start open
   const [userInput, setUserInput] = useState("");
   const [messages, setMessages] = useState([
-    { type: "bot", text: "Hello!! How may I assist you in " + selectedWebsite.charAt(0).toUpperCase() + selectedWebsite.slice(1) + " ?" },
+    {
+      type: "bot",
+      text:
+        "Hello!! How may I assist you in " +
+        selectedWebsite.charAt(0).toUpperCase() +
+        selectedWebsite.slice(1) +
+        " ?",
+    },
     // { type: "bot", text: "Hello!! How may I assist you in " + {selectedWebsite} + " ?" },
   ]);
   const [isLoading, setIsLoading] = useState(false);
@@ -24,10 +33,10 @@ const PromptBox = ({ selectedWebsite, closePromptBox }) => {
       ...prevMessages,
       { type: "user", text: currentInput },
     ]);
-    console.log("Code reaches line number 26.")
+    console.log("Code reaches line number 26.");
 
     try {
-      console.log("Code reaches line number 29.")
+      console.log("Code reaches line number 29.");
       const response = await axios.post(
         // "https://navify-backend.onrender.com/api/v1/navify",
         "http://localhost:8000/api/v1/navify",
@@ -36,12 +45,12 @@ const PromptBox = ({ selectedWebsite, closePromptBox }) => {
           websiteName: selectedWebsite,
         }
       );
-      console.log("Code reaches line number 38.")
+      console.log("Code reaches line number 38.");
 
       const results = response.data.results;
-      console.log("Code reaches line number 41.")
+      console.log("Code reaches line number 41.");
       const relevantResults = results.filter((result) => result.score > 0);
-      console.log("Code reaches line number 43.")
+      console.log("Code reaches line number 43.");
 
       if (relevantResults.length === 0) {
         setMessages((prev) => [
@@ -72,9 +81,12 @@ const PromptBox = ({ selectedWebsite, closePromptBox }) => {
 
   return (
     isOpen && (
-      <div className="fixed top-20 right-0 w-[50vh] h-[75vh] max-w-full max-h-[80vh] bg-blue-200 shadow-xl rounded-lg border border-gray-300 overflow-hidden z-20 flex flex-col">
-        <div className="flex justify-between items-center bg-blue-500 text-white p-3">
-          <h3 className="text-lg font-semibold">Navify</h3>
+      <div className="fixed top-20 right-0 w-[60vh] h-[75vh] max-w-full max-h-[80vh] bg-blue-200 shadow-xl rounded-lg border border-gray-300 overflow-hidden z-20 flex flex-col">
+        <div className="flex justify-between items-center bg-blue-500 text-white pr-3">
+          <div className="flex justify-between items-center">
+            <img src={Navify} alt="Navify" className="size-16"/>
+            <h3 className="text-xl font-semibold">Navify</h3>
+          </div>
           <button onClick={closePromptBox} className="text-white">
             &times;
           </button>
@@ -109,14 +121,14 @@ const PromptBox = ({ selectedWebsite, closePromptBox }) => {
                     </p>
                     {msg.links.map((link, i) => (
                       <a
-                      key={i}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-blue-600 hover:text-blue-800 text-sm py-1 px-2 rounded-md hover:bg-blue-50 transition break-all"
-                    >
-                      {link.label}
-                    </a>
+                        key={i}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-blue-600 hover:text-blue-800 text-sm py-1 px-2 rounded-md hover:bg-blue-50 transition break-all"
+                      >
+                        {link.label}
+                      </a>
                     ))}
                   </div>
                 )}

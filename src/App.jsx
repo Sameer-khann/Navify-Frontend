@@ -8,6 +8,7 @@ import SancharSaathi from "./Img/sancharsaathi.png";
 import maze from "./Img/maze.png";
 import search from "./Img/search.png";
 import clickhere from "./Img/clickhere.png";
+import sparkle from "./Img/sparkle.svg";
 
 import PromptBox from "./navify/PromptBox";
 
@@ -121,62 +122,16 @@ function app() {
       </div>
 
       <section>
-        <div className="min-h-screen bg-[rgba(27,27,27,1)] p-6 md:p-10 lg:p-16">
+        <div className="bg-[rgba(27,27,27,1)] p-6 md:p-10 lg:p-16">
           {/* Header */}
-          <header className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center mb-12">
-            <div className="text-orange-500 mr-4">
-              <svg viewBox="0 0 50 50" className="w-10 h-10">
-                <circle
-                  cx="25"
-                  cy="25"
-                  r="20"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <g transform="rotate(0 25 25)">
-                  {[...Array(12)].map((_, i) => (
-                    <rect
-                      key={i}
-                      x="24"
-                      y="5"
-                      width="2"
-                      height="8"
-                      fill="currentColor"
-                      transform={`rotate(${i * 30} 25 25)`}
-                    />
-                  ))}
-                </g>
-              </svg>
-            </div>
-            <h1 className="text-white text-2xl md:text-3xl font-semibold text-center md:text-left my-4 md:my-0">
+          <header className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center mb-12 gap-4">
+            <img src={sparkle} alt="" />
+
+            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center md:text-left my-4 md:my-0">
               The OneGov Navigator Repository
             </h1>
-            <div className="text-orange-500 ml-4">
-              <svg viewBox="0 0 50 50" className="w-10 h-10">
-                <circle
-                  cx="25"
-                  cy="25"
-                  r="20"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <g transform="rotate(0 25 25)">
-                  {[...Array(12)].map((_, i) => (
-                    <rect
-                      key={i}
-                      x="24"
-                      y="5"
-                      width="2"
-                      height="8"
-                      fill="currentColor"
-                      transform={`rotate(${i * 30} 25 25)`}
-                    />
-                  ))}
-                </g>
-              </svg>
-            </div>
+
+            <img src={sparkle} alt="" />
           </header>
 
           {/* Repository Grid */}
@@ -185,7 +140,7 @@ function app() {
               <div
                 key={index}
                 onClick={() => handleCardClick(service.websiteKey)}
-                className="bg-gray-800 rounded-lg p-4 border border-gray-700"
+                className="bg-gray-800 rounded-lg p-4 border border-gray-700 hover:bg-[rgba(75,75,75,1)]"
               >
                 <div className="flex">
                   <div className="mr-4">
@@ -234,33 +189,9 @@ function app() {
       </section>
 
       <section>
-        <div className="min-h-screen bg-[rgba(27,27,27,1)] p-6 md:p-12 lg:p-16 relative overflow-hidden">
+        <div className=" bg-[rgba(27,27,27,1)] p-6 md:p-12 lg:p-16 relative overflow-hidden">
           {/* Orange sun/burst icon in top right */}
-          <div className="absolute top-0 right-0 text-orange-500 mt-6 mr-6 md:mt-12 md:mr-12">
-            <svg viewBox="0 0 50 50" className="w-16 h-16 md:w-24 md:h-24">
-              <circle
-                cx="25"
-                cy="25"
-                r="20"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-              <g>
-                {[...Array(12)].map((_, i) => (
-                  <rect
-                    key={i}
-                    x="24"
-                    y="5"
-                    width="2"
-                    height="8"
-                    fill="currentColor"
-                    transform={`rotate(${i * 30} 25 25)`}
-                  />
-                ))}
-              </g>
-            </svg>
-          </div>
+          <img src={sparkle} alt="" />
 
           {/* Main content */}
           <div className="max-w-6xl mx-auto">
@@ -312,6 +243,8 @@ function app() {
 
       <section>
         <div className="min-h-screen bg-[rgba(27,27,27,1)] p-6 md:p-12 lg:p-16 relative">
+
+        <img src={sparkle} alt="" />
           {/* Orange sun/burst icon in top left */}
           {/* <div className="absolute top-0 left-0 text-orange-500 mt-6 ml-6 md:mt-12 md:ml-12">
             <svg viewBox="0 0 50 50" className="w-16 h-16 md:w-24 md:h-24">
