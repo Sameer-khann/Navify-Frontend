@@ -33,10 +33,8 @@ const PromptBox = ({ selectedWebsite, closePromptBox }) => {
       ...prevMessages,
       { type: "user", text: currentInput },
     ]);
-    console.log("Code reaches line number 26.");
 
-    try {
-      console.log("Code reaches line number 29.");
+    try { // How to login for the passbook of the empoyee?
       const response = await axios.post(
         "https://navify-backend.onrender.com/api/v1/navify",
         // "http://localhost:8000/api/v1/navify",
@@ -45,12 +43,9 @@ const PromptBox = ({ selectedWebsite, closePromptBox }) => {
           websiteName: selectedWebsite,
         }
       );
-      console.log("Code reaches line number 38.");
 
       const results = response.data.results;
-      console.log("Code reaches line number 41.");
       const relevantResults = results.filter((result) => result.score > 0);
-      console.log("Code reaches line number 43.");
 
       if (relevantResults.length === 0) {
         setMessages((prev) => [
