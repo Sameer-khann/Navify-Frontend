@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Send } from "lucide-react";
+import { Send, Mic } from "lucide-react";
 import axios from "axios";
-
-import Navify from "../Img/Navify.svg"
+import Navify from "../Img/Navify.svg";
 
 const PromptBox = ({ selectedWebsite, closePromptBox }) => {
-  const [isOpen, setIsOpen] = useState(true); // start open
+  const [isOpen, setIsOpen] = useState(true);
   const [userInput, setUserInput] = useState("");
+  const [isListening, setIsListening] = useState(false);
   const [messages, setMessages] = useState([
     {
       type: "bot",
@@ -16,7 +16,6 @@ const PromptBox = ({ selectedWebsite, closePromptBox }) => {
         selectedWebsite.slice(1) +
         " ?",
     },
-    // { type: "bot", text: "Hello!! How may I assist you in " + {selectedWebsite} + " ?" },
   ]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -34,10 +33,9 @@ const PromptBox = ({ selectedWebsite, closePromptBox }) => {
       { type: "user", text: currentInput },
     ]);
 
-    try { // How to login for the passbook of the empoyee?
+    try {
       const response = await axios.post(
         "https://navify-backend.onrender.com/api/v1/navify",
-        // "http://localhost:8000/api/v1/navify",
         {
           prompt: currentInput,
           websiteName: selectedWebsite,
@@ -74,15 +72,43 @@ const PromptBox = ({ selectedWebsite, closePromptBox }) => {
     }
   };
 
+  const startListening = () => {
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert("Your browser does not support Speech Recognition.");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => setIsListening(true);
+    recognition.onerror = (event) => {
+      console.error("Speech recognition error:", event.error);
+      setIsListening(false);
+    };
+    recognition.onend = () => setIsListening(false);
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      setUserInput(transcript);
+    };
+
+    recognition.start();
+  };
+
   return (
     isOpen && (
       <div className="fixed top-20 right-0 w-[60vh] h-[75vh] max-w-full max-h-[80vh] bg-blue-200 shadow-xl rounded-lg border border-gray-300 overflow-hidden z-20 flex flex-col">
         <div className="flex justify-between items-center bg-blue-500 text-white pr-3">
-          <div className="flex justify-between items-center">
-            <img src={Navify} alt="Navify" className="size-16"/>
+          <div className="flex items-center">
+            <img src={Navify} alt="Navify" className="size-16" />
             <h3 className="text-xl font-semibold">Navify</h3>
           </div>
-          <button onClick={closePromptBox} className="text-white">
+          <button onClick={closePromptBox} className="text-white text-2xl">
             &times;
           </button>
         </div>
@@ -150,18 +176,28 @@ const PromptBox = ({ selectedWebsite, closePromptBox }) => {
           </div>
         )}
 
-        <div className="p-2 flex">
+        <div className="p-2 flex items-center">
           <input
             type="text"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
             onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
             className="flex-grow rounded-lg p-2"
-            placeholder="Type your query..."
+            placeholder="Type or speak your query..."
           />
+          <button
+            onClick={startListening}
+            className={`bg-white border border-blue-400 text-blue-600 w-10 h-10 rounded-full ml-2 flex items-center justify-center hover:bg-blue-100 ${
+              isListening ? "animate-pulse" : ""
+            }`}
+            title="Speak your prompt"
+          >
+            <Mic />
+          </button>
           <button
             onClick={handleSendMessage}
             className="bg-blue-500 text-white w-10 h-10 rounded-full hover:bg-blue-600 ml-2 flex items-center justify-center transform rotate-45"
+            title="Send prompt"
           >
             <Send />
           </button>
