@@ -36,6 +36,7 @@ const PromptBox = ({ selectedWebsite, closePromptBox }) => {
     try {
       const response = await axios.post(
         "https://navify-backend.onrender.com/api/v1/navify",
+        // "http://localhost:8000/api/v1/navify",
         {
           prompt: currentInput,
           websiteName: selectedWebsite,

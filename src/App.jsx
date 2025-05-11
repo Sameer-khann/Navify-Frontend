@@ -4,6 +4,8 @@ import DJB from "./Img/DJB.png";
 import EPFO from "./Img/EPFO.png";
 import PaviwahanSewa from "./Img/ParivahanSewa.png";
 import SancharSaathi from "./Img/sancharsaathi.png";
+import Umang from "./Img/umang.png";
+import IncomeTax from "./Img/incometax.png";
 
 import maze from "./Img/maze.png";
 import search from "./Img/search.png";
@@ -48,6 +50,24 @@ const services = [
     isSvg: false,
     alt: "Sanchar Saathi",
     websiteKey: "Sancharsaathi",
+  },
+  {
+    title: "UMANG",
+    description:
+      "UMANG (Unified Mobile Application for New-age Governance) provides a single platform for accessing various government services in India.",
+    logo: Umang, // Add the Umaang logo file to your project and import it
+    alt: "UMANG logo",
+    isSvg: false,
+    websiteKey: "umang",
+  },
+  {
+    title: "Income Tax Department",
+    description:
+      "The Income Tax Department of India provides services for filing income tax returns, tracking refunds, and accessing tax-related information.",
+    logo: IncomeTax, // Add the IncomeTax logo file to your project and import it
+    alt: "Income Tax Department logo",
+    isSvg: false,
+    websiteKey: "incometax",
   },
 ];
 
@@ -111,10 +131,30 @@ function app() {
                 <br />
                 <div className="p-4">Effortless to Use.</div>
               </h2>
+              <h4 className="text-white text-2xl italic font-bold mb-6 flex items-center">
+                Around 70% of government websites have unclear navigation paths
+                <a
+                  href="https://www.ijraset.com/best-journal/enhancing-accessibility-and-usability-of-government-websites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-2 text-blue-400 hover:text-blue-600"
+                  aria-label="Verify source"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 122.88 122.88"
+                    className="h-5 w-5"
+                    fill="currentColor"
+                  >
+                    <title>Source</title> 
+                    <path d="M60.54,34.07A7.65,7.65,0,0,1,49.72,23.25l13-12.95a35.38,35.38,0,0,1,49.91,0l.07.08a35.37,35.37,0,0,1-.07,49.83l-13,12.95A7.65,7.65,0,0,1,88.81,62.34l13-13a20.08,20.08,0,0,0,0-28.23l-.11-.11a20.08,20.08,0,0,0-28.2.07l-12.95,13Zm14,3.16A7.65,7.65,0,0,1,85.31,48.05L48.05,85.31A7.65,7.65,0,0,1,37.23,74.5L74.5,37.23ZM62.1,89.05A7.65,7.65,0,0,1,72.91,99.87l-12.7,12.71a35.37,35.37,0,0,1-49.76.14l-.28-.27a35.38,35.38,0,0,1,.13-49.78L23,50A7.65,7.65,0,1,1,33.83,60.78L21.12,73.49a20.09,20.09,0,0,0,0,28.25l0,0a20.07,20.07,0,0,0,28.27,0L62.1,89.05Z" />
+                  </svg>
+                </a>
+              </h4>
               <p className="text-white text-md md:text-lg opacity-80 max-w-3xl mx-auto">
                 A unified platform that simplifies access to government services
                 by integrating smart, AI-powered search across all official
-                websites.
+                Government websites.
               </p>
             </div>
           </main>
@@ -243,8 +283,7 @@ function app() {
 
       <section>
         <div className="min-h-screen bg-[rgba(27,27,27,1)] p-6 md:p-12 lg:p-16 relative">
-
-        <img src={sparkle} alt="" />
+          <img src={sparkle} alt="" />
           {/* Orange sun/burst icon in top left */}
           {/* <div className="absolute top-0 left-0 text-orange-500 mt-6 ml-6 md:mt-12 md:ml-12">
             <svg viewBox="0 0 50 50" className="w-16 h-16 md:w-24 md:h-24">
